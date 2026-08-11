@@ -320,7 +320,24 @@ const App = () => {
                   { id: 'joyce_ngetich', name: "Joyce Ng'etich", order: 8, location: '', history: '' },
                   { id: 'charles_ngeno', name: "Charles Ng'eno", order: 9, location: '', history: '' }
                 ]
-              }
+              },
+              {
+                id: 'alphina',
+                name: 'Alphina',
+                title: '3rd Wife',
+                location: '',
+                history: '',
+                children: [
+                  { id: 'ridah_a', name: 'Ridah', order: 1, location: '', history: '' },
+                  { id: 'robert_a', name: 'Robert', order: 2, location: '', history: '' },
+                  { id: 'catherine_a', name: 'Catherine', order: 3, location: '', history: '' },
+                  { id: 'janeth_a', name: 'Janeth', order: 4, location: '', history: '' },
+                  { id: 'vincent_a', name: 'Vincent', order: 5, location: '', history: '' },
+                  { id: 'gilbert_a', name: 'Gilbert', order: 6, location: '', history: '' },
+                  { id: 'walter_a', name: 'Walter', order: 7, location: '', history: '' },
+                  { id: 'titus_a', name: 'Titus', order: 8, location: '', history: '' }
+                ]
+              },
             ]
           },
           {
