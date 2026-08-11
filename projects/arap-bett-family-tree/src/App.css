@@ -2,51 +2,63 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  background: #f5f7fa;
 }
 
 .App {
   min-height: 100vh;
+  min-height: 100dvh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .App-header {
   background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
   color: white;
-  padding: 30px;
+  padding: 20px 15px;
   border-radius: 15px;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 .App-header h1 {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 1.8em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .subtitle {
-  margin-top: 10px;
+  margin-top: 5px;
   opacity: 0.9;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .header-actions {
   display: flex;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 15px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn-export, .btn-import, .btn-reset {
-  padding: 12px 24px;
+  padding: 10px 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 14px;
   transition: all 0.3s;
-  font-size: 16px;
+  flex: 1;
+  min-width: 80px;
 }
 
 .btn-export {
@@ -64,111 +76,118 @@
   color: white;
 }
 
+.btn-export:active, .btn-import:active, .btn-reset:active {
+  transform: scale(0.95);
+}
+
 .save-notification {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
+  left: 10px;
   background: #27ae60;
   color: white;
-  padding: 15px 25px;
+  padding: 12px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 2000;
   font-weight: 600;
+  text-align: center;
+  font-size: 14px;
 }
 
 .family-tree {
   background: white;
-  padding: 20px;
+  padding: 15px;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .patriarch-section {
-  margin-bottom: 30px;
-  padding: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
   background: #f8f9fa;
   border-radius: 10px;
-  border-left: 5px solid #667eea;
+  border-left: 4px solid #667eea;
 }
 
 .patriarch-section h3 {
   color: #2c3e50;
-  margin-bottom: 15px;
-  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-size: 1.2em;
 }
 
 .wives-section {
-  padding: 20px;
+  padding: 15px;
   background: #f8f9fa;
   border-radius: 10px;
-  border-left: 5px solid #f5576c;
+  border-left: 4px solid #f5576c;
 }
 
 .wives-section h3 {
   color: #2c3e50;
-  margin-bottom: 20px;
-  font-size: 1.5em;
+  margin-bottom: 15px;
+  font-size: 1.2em;
 }
 
 .wives-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .wife-card {
   background: white;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
 .wife-card-header {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   color: white;
-  padding: 15px;
+  padding: 12px;
 }
 
 .wife-card-header h4 {
-  margin: 0 0 5px 0;
-  font-size: 1.2em;
+  margin: 0 0 3px 0;
+  font-size: 1.1em;
 }
 
 .wife-card-header .wife-title {
-  font-size: 0.9em;
+  font-size: 0.85em;
   opacity: 0.9;
 }
 
 .wife-card-header .wife-location {
   font-size: 0.8em;
-  margin-top: 5px;
+  margin-top: 3px;
   opacity: 0.9;
 }
 
 .wife-card-body {
-  padding: 15px;
+  padding: 10px;
 }
 
 .wife-actions {
   display: flex;
-  gap: 8px;
-  margin-bottom: 15px;
+  gap: 6px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
-.children-grid {
+.children-grid, .grandchildren-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .person-card {
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 8px;
-  transition: all 0.3s;
-  min-width: 160px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.9em;
+  min-width: 140px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .person-card.male {
@@ -183,27 +202,27 @@
 
 .person-name {
   font-weight: bold;
-  font-size: 0.95em;
-  margin-bottom: 3px;
+  font-size: 0.9em;
+  margin-bottom: 2px;
   cursor: pointer;
 }
 
 .person-title {
-  font-size: 0.8em;
+  font-size: 0.75em;
   opacity: 0.9;
   font-style: italic;
 }
 
 .person-location {
-  font-size: 0.75em;
-  margin-top: 3px;
+  font-size: 0.7em;
+  margin-top: 2px;
   opacity: 0.8;
 }
 
 .person-actions {
-  margin-top: 8px;
+  margin-top: 6px;
   display: flex;
-  gap: 5px;
+  gap: 4px;
   flex-wrap: wrap;
 }
 
@@ -216,9 +235,10 @@
   color: white;
   font-weight: 600;
   background: rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
 }
 
-.btn-sm:hover {
+.btn-sm:active {
   background: rgba(255, 255, 255, 0.4);
 }
 
@@ -230,44 +250,128 @@
   background: rgba(231, 76, 60, 0.8);
 }
 
+.sons-container {
+  margin-top: 8px;
+}
+
+.son-container {
+  margin: 8px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.son-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+  background: #f8f9fa;
+}
+
+.expand-btn {
+  padding: 5px 12px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.expand-btn:active {
+  background: #5a67d8;
+}
+
+.son-wives-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  background: #fafafa;
+}
+
+.grand-wife-card {
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 3px solid #f5576c;
+}
+
+.grand-wife-header {
+  margin-bottom: 6px;
+  font-size: 0.9em;
+  color: #2c3e50;
+}
+
+.wife-subtitle {
+  color: #888;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.grand-wife-actions {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.no-children {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  padding: 8px;
+  font-size: 0.85em;
+}
+
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  height: 100dvh;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 15px;
 }
 
 .modal-content {
   background: white;
-  padding: 30px;
-  border-radius: 15px;
-  min-width: 400px;
-  max-width: 600px;
-  max-height: 80vh;
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh;
+  max-height: 85dvh;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .modal-content h3 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-size: 1.2em;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   font-weight: 600;
   color: #2c3e50;
+  font-size: 0.9em;
 }
 
 .form-group input,
@@ -279,166 +383,124 @@
   border-radius: 8px;
   font-size: 16px;
   font-family: inherit;
+  -webkit-appearance: none;
 }
 
 .form-group textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: 70px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3498db;
 }
 
 .form-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: 15px;
+  flex-wrap: wrap;
 }
 
 .btn-submit {
-  padding: 10px 25px;
+  padding: 10px 20px;
   background: #667eea;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 14px;
 }
 
 .btn-cancel {
-  padding: 10px 25px;
+  padding: 10px 20px;
   background: #ecf0f1;
   color: #2c3e50;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 14px;
 }
 
 .btn-delete-confirm {
-  padding: 10px 25px;
+  padding: 10px 20px;
   background: #e74c3c;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 14px;
 }
 
 .delete-warning {
   color: #e74c3c;
-  font-size: 0.9em;
-  margin-top: 10px;
+  font-size: 0.85em;
+  margin-top: 8px;
 }
 
 .detail-section {
-  margin: 15px 0;
-  padding: 15px;
+  margin: 10px 0;
+  padding: 10px;
   background: #f8f9fa;
   border-radius: 8px;
-  border-left: 4px solid #3498db;
+  border-left: 3px solid #3498db;
+}
+
+.detail-section h4 {
+  font-size: 0.95em;
+  margin-bottom: 5px;
 }
 
 .history-text {
   white-space: pre-wrap;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #555;
-}
-
-@media (max-width: 768px) {
-  .wives-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .children-grid {
-    flex-direction: column;
-  }
-  
-  .person-card {
-    min-width: 100%;
-  }
-}
-
-.sons-container {
-  margin-top: 10px;
-}
-
-.son-container {
-  margin: 10px 0;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.son-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-  background: #f8f9fa;
-}
-
-.expand-btn {
-  padding: 6px 14px;
-  background: #667eea;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85em;
-  font-weight: 600;
-  transition: all 0.3s;
-}
-
-.expand-btn:hover {
-  background: #5a67d8;
-}
-
-.son-wives-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 15px;
-  padding: 15px;
-  background: #fafafa;
-}
-
-.grand-wife-card {
-  background: white;
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  border-left: 3px solid #f5576c;
-}
-
-.grand-wife-header {
-  margin-bottom: 8px;
-  font-size: 0.95em;
-  color: #2c3e50;
-}
-
-.wife-subtitle {
-  color: #888;
-  font-size: 0.85em;
-  font-style: italic;
-}
-
-.grand-wife-actions {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-}
-
-.grandchildren-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.no-children {
-  color: #999;
-  font-style: italic;
-  text-align: center;
-  padding: 10px;
   font-size: 0.9em;
+}
+
+@media (min-width: 768px) {
+  .App {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .App-header h1 {
+    font-size: 2.5em;
+  }
+  
+  .wives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+  }
+  
+  .son-wives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .person-card {
+    min-width: 120px;
+    padding: 6px 10px;
+  }
+  
+  .btn-sm {
+    padding: 3px 6px;
+    font-size: 0.65em;
+  }
+  
+  .App-header h1 {
+    font-size: 1.5em;
+  }
 }

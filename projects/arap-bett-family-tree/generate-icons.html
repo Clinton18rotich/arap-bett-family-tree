@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="c192" width="192" height="192"></canvas>
+<canvas id="c512" width="512" height="512"></canvas>
+<script>
+function drawIcon(canvas) {
+  const ctx = canvas.getContext('2d');
+  const size = canvas.width;
+  
+  // Background gradient
+  const gradient = ctx.createLinearGradient(0, 0, size, size);
+  gradient.addColorStop(0, '#2c3e50');
+  gradient.addColorStop(1, '#3498db');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, size, size);
+  
+  // Tree icon
+  ctx.fillStyle = '#fff';
+  ctx.font = `${size * 0.5}px Arial`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('👨‍👩‍👧‍👦', size/2, size/2);
+  
+  return canvas.toDataURL('image/png');
+}
+
+const data192 = drawIcon(document.getElementById('c192'));
+const data512 = drawIcon(document.getElementById('c512'));
+
+// Output for saving
+console.log('Icons generated!');
+document.body.innerHTML += '<p>Icons generated! Right-click and save each canvas.</p>';
+</script>
+</body>
+</html>
