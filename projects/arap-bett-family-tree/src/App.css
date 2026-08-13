@@ -504,3 +504,34 @@ body {
     font-size: 1.5em;
   }
 }
+
+.grandchild-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.great-grandchildren {
+  margin-top: 5px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.great-grand-wife, .great-grand-husband {
+  padding: 6px;
+  background: white;
+  border-radius: 4px;
+  font-size: 0.85em;
+  border-left: 3px solid #667eea;
+}
+
+.great-grandchildren-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}

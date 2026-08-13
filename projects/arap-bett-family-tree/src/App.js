@@ -36,7 +36,7 @@ const App = () => {
       {
         id: 'wife_1',
         name: '[Name]',
-        title: '1st Wife',
+        title: 'Wife',
         location: '',
         history: '',
         children: []
@@ -58,7 +58,7 @@ const App = () => {
               {
                 id: 'obot_musa',
                 name: 'Obot Musa',
-                title: '1st Wife',
+                title: 'Wife',
                 location: '',
                 history: '',
                 children: [
@@ -97,7 +97,7 @@ const App = () => {
               {
                 id: 'tab_sargok',
                 name: 'Tab Sargok',
-                title: '1st Wife',
+                title: 'Wife',
                 location: '',
                 history: '',
                 children: [
@@ -135,7 +135,7 @@ const App = () => {
               {
                 id: 'tab_randich',
                 name: 'Tab Randich',
-                title: '1st Wife',
+                title: 'Wife',
                 location: '',
                 history: '',
                 children: [
@@ -201,7 +201,7 @@ const App = () => {
               {
                 id: 'bot_christina',
                 name: 'Bot Christina',
-                title: '1st Wife',
+                title: 'Wife',
                 location: '',
                 history: '',
                 children: [
@@ -246,7 +246,7 @@ const App = () => {
               {
                 id: 'rebecca',
                 name: 'Rebecca',
-                title: '1st Wife',
+                title: 'Wife',
                 location: '',
                 history: '',
                 children: [
@@ -295,12 +295,58 @@ const App = () => {
               {
                 id: 'obot_joel',
                 name: 'Obot Joel',
-                title: '1st Wife',
+                title: 'Wife',
                 location: '',
                 history: '',
                 children: [
-                  { id: 'joel_ki', name: 'Joel', order: 1, location: '', history: '' },
-                  { id: 'richard_ki', name: 'Richard', order: 2, location: '', history: '' }
+                  {
+                    id: 'joel_ki',
+                    name: 'Joel',
+                    title: '1st Son',
+                    location: '',
+                    history: '',
+                    wives: [
+                      {
+                        id: 'alice_joel',
+                        name: 'Alice',
+                        title: 'Wife',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'wesley_j', name: 'Wesley', order: 1, location: '', history: '' },
+                          { id: 'lucy_chelangat', name: "Lucy Chelang'at", order: 2, location: '', history: '' },
+                          { id: 'benard_j', name: 'Benard', order: 3, location: '', history: '' },
+                          { id: 'chepkoech_j', name: 'Chepkoech', order: 4, location: '', history: '' },
+                          { id: 'chepkirui_j', name: 'Chepkirui', order: 5, location: '', history: '' },
+                          { id: 'chepngeno_j', name: "Chepng'eno", order: 6, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    id: 'richard_ki',
+                    name: 'Richard',
+                    title: '2nd Son',
+                    location: '',
+                    history: '',
+                    wives: [
+                      {
+                        id: 'philipina',
+                        name: 'Philipina',
+                        title: 'Wife',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'cherono_r', name: 'Cherono', order: 1, location: '', history: '' },
+                          { id: 'chepkoech_r', name: 'Chepkoech', order: 2, location: '', history: '' },
+                          { id: 'cherotich_r', name: 'Cherotich', order: 3, location: '', history: '' },
+                          { id: 'gilbert_r', name: 'Gilbert', order: 4, location: '', history: '' },
+                          { id: 'kiprotich_r', name: 'Kiprotich', order: 5, location: '', history: '' },
+                          { id: 'chebet_r', name: 'Chebet', order: 6, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  }
                 ]
               },
               {
@@ -310,16 +356,232 @@ const App = () => {
                 location: '',
                 history: '',
                 children: [
-                  { id: 'philip_ngeno', name: "Philip Ng'eno", order: 1, location: '', history: '' },
-                  { id: 'david_ngeno', name: "David Ng'eno", order: 2, location: '', history: '' },
-                  { id: 'decla_chekwony', name: 'Decla Chekwony', order: 3, location: '', history: '' },
-                  { id: 'betty_cheruiyot', name: 'Betty Cheruiyot', order: 4, location: '', history: '' },
-                  { id: 'christine_byegon', name: 'Christine Byegon', order: 5, location: '', history: '' },
-                  { id: 'paul_ngeno', name: "Paul Ng'eno", order: 6, location: '', history: '' },
-                  { id: 'margaret_ki', name: 'Margaret', order: 7, location: '', history: '' },
-                  { id: 'moses_ngeno', name: 'Moses', order: 8, location: '', history: '' },
-                  { id: 'joyce_ngetich', name: "Joyce Ng'etich", order: 9, location: '', history: '' },
-                  { id: 'charles_ngeno', name: "Charles Ng'eno", order: 10, location: '', history: '' }
+                  {
+                    id: 'philip_ngeno',
+                    name: "Philip Ng'eno",
+                    title: '1st Son',
+                    location: '',
+                    history: '',
+                    wives: [
+                      {
+                        id: 'selina',
+                        name: 'Selina',
+                        title: 'Wife',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'sheila_tonui', name: 'Sheila Tonui', order: 1, location: '', history: '' },
+                          { id: 'robert_ngasura', name: "Robert Ng'asura", order: 2, location: '', history: '' },
+                          { id: 'nickson_kebeney', name: 'Nickson Kebeney', order: 3, location: '', history: '' },
+                          { id: 'patrick_byegon', name: 'Patrick Byegon', order: 4, location: '', history: '' },
+                          { id: 'kiprono_kibet', name: 'Kiprono & Kibet (Twins)', order: 5, location: '', history: '' },
+                          { id: 'brian_p', name: 'Brian', order: 6, location: '', history: '' }
+                        ]
+                      },
+                      {
+                        id: 'beatrice',
+                        name: 'Beatrice',
+                        title: '2nd Wife',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'bismack_p', name: 'Bismack', order: 1, location: '', history: '' },
+                          { id: 'anita_p', name: 'Anita', order: 2, location: '', history: '' },
+                          { id: 'clinton_p', name: 'Clinton', order: 3, location: '', history: '' },
+                          { id: 'emmanuel_p', name: 'Emmanuel', order: 4, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    id: 'david_ngeno',
+                    name: "David Ng'eno",
+                    title: '2nd Son',
+                    location: '',
+                    history: '',
+                    wives: [
+                      {
+                        id: 'nancy',
+                        name: 'Nancy',
+                        title: 'Wife',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'priscah_chepkirui', name: 'Priscah Chepkirui', order: 1, location: '', history: '' },
+                          { id: 'shadrack_d', name: 'Shadrack', order: 2, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    id: 'decla_chekwony',
+                    name: 'Decla Chekwony',
+                    title: '3rd Child',
+                    location: '',
+                    history: '',
+                    husbands: [
+                      {
+                        id: 'joseph_decla',
+                        name: 'Joseph',
+                        title: 'Husband',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'joyce_chepkoech', name: 'Joyce Chepkoech', order: 1, location: '', history: '' },
+                          { id: 'betty_d', name: 'Betty', order: 2, location: '', history: '' },
+                          { id: 'hillary_d', name: 'Hillary', order: 3, location: '', history: '' },
+                          { id: 'geoffrey_d', name: 'Geoffrey', order: 4, location: '', history: '' },
+                          { id: 'jackline_d', name: 'Jackline', order: 5, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    id: 'betty_cheruiyot',
+                    name: 'Betty Cheruiyot',
+                    title: '4th Child',
+                    location: '',
+                    history: '',
+                    husbands: [
+                      {
+                        id: 'wesley_cheruiyot',
+                        name: 'Wesley Cheruiyot',
+                        title: 'Husband',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'chepkoech_b', name: 'Chepkoech', order: 1, location: '', history: '' },
+                          { id: 'elijah_b', name: 'Elijah', order: 2, location: '', history: '' },
+                          { id: 'chepkorir_b', name: 'Chepkorir', order: 3, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    id: 'christine_byegon',
+                    name: 'Christine Byegon',
+                    title: '5th Child',
+                    location: '',
+                    history: '',
+                    husbands: [
+                      {
+                        id: 'david_byegon',
+                        name: 'David Byegon',
+                        title: 'Husband',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'brian_c', name: 'Brian', order: 1, location: '', history: '' },
+                          { id: 'brandon_c', name: 'Brandon', order: 2, location: '', history: '' },
+                          { id: 'brington_c', name: 'Brington', order: 3, location: '', history: '' },
+                          { id: 'kiplangat_c', name: "Kiplang'at (Twin)", order: 4, location: '', history: '' },
+                          { id: 'kiprop_c', name: 'Kiprop', order: 5, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    id: 'paul_ngeno',
+                    name: "Paul Ng'eno",
+                    title: '6th Child',
+                    location: '',
+                    history: '',
+                    wives: [
+                      {
+                        id: 'agnes',
+                        name: 'Agnes',
+                        title: 'Wife',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'kipchumba_p', name: 'Kipchumba', order: 1, location: '', history: '' },
+                          { id: 'cherop_p', name: 'Cherop', order: 2, location: '', history: '' },
+                          { id: 'blank_p', name: '[Blank]', order: 3, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    id: 'margaret_ki',
+                    name: 'Margaret',
+                    title: '7th Child',
+                    location: '',
+                    history: '',
+                    husbands: [
+                      {
+                        id: 'margaret_husband',
+                        name: '[Husband]',
+                        title: 'Husband',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'okari_m', name: 'Okari', order: 1, location: '', history: '' },
+                          { id: 'kerubo_m', name: 'Kerubo', order: 2, location: '', history: '' },
+                          { id: 'blank_m', name: '[Blank]', order: 3, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    id: 'moses_ngeno',
+                    name: 'Moses',
+                    title: '8th Child',
+                    location: '',
+                    history: '',
+                    wives: [
+                      {
+                        id: 'betty_moses',
+                        name: 'Betty',
+                        title: 'Wife',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'carlos_kiprotich', name: 'Carlos Kiprotich', order: 1, location: '', history: '' },
+                          { id: 'maurine_cheptoo', name: 'Maurine Cheptoo', order: 2, location: '', history: '' },
+                          { id: 'abigail_cherono', name: 'Abigail Cherono', order: 3, location: '', history: '' },
+                          { id: 'jayden_kiprop', name: 'Jayden Kiprop', order: 4, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    id: 'joyce_ngetich',
+                    name: "Joyce Ng'etich",
+                    title: '9th Child',
+                    location: '',
+                    history: '',
+                    husbands: [
+                      {
+                        id: 'geoffrey_ngetich',
+                        name: "Geoffrey Ng'etich",
+                        title: 'Husband',
+                        location: '',
+                        history: '',
+                        children: []
+                      }
+                    ]
+                  },
+                  {
+                    id: 'charles_ngeno',
+                    name: "Charles Ng'eno",
+                    title: '10th Child',
+                    location: '',
+                    history: '',
+                    wives: [
+                      {
+                        id: 'margaret_charles',
+                        name: 'Margaret',
+                        title: 'Wife',
+                        location: '',
+                        history: '',
+                        children: [
+                          { id: 'kipkoech_c', name: 'Kipkoech', order: 1, location: '', history: '' },
+                          { id: 'kipngetich_c', name: "Kipng'etich", order: 2, location: '', history: '' },
+                          { id: 'kiptoo_c', name: 'Kiptoo', order: 3, location: '', history: '' }
+                        ]
+                      }
+                    ]
+                  }
                 ]
               },
               {
@@ -338,7 +600,7 @@ const App = () => {
                   { id: 'walter_a', name: 'Walter', order: 7, location: '', history: '' },
                   { id: 'titus_a', name: 'Titus', order: 8, location: '', history: '' }
                 ]
-              },
+              }
             ]
           },
           {
@@ -592,6 +854,7 @@ const App = () => {
 
   const renderPersonCard = (person, showWifeBtn = true) => {
     const isMale = person.type === 'patriarch' || person.gender === 'male' || (person.title && person.title.includes('Son'));
+    const hasSpouse = person.wives || person.husbands;
     
     return (
       <div key={person.id} className={'person-card ' + (isMale ? 'male' : 'female')}>
@@ -601,6 +864,7 @@ const App = () => {
         <div className="person-actions">
           {showWifeBtn && <button className="btn-sm" onClick={() => { setFormData({ ...formData, type: 'wife', parentId: person.id }); setShowAddForm(true); }}>+ Wife</button>}
           <button className="btn-sm" onClick={() => { setFormData({ ...formData, type: 'child', parentId: person.id }); setShowAddForm(true); }}>+ Child</button>
+          {hasSpouse && <button className="btn-sm expand-btn" onClick={() => toggleExpandSon(person.id)}>{expandedSons[person.id] ? '▲' : '▼'}</button>}
           <button className="btn-sm btn-edit" onClick={() => openEditForm(person)}>✎</button>
           <button className="btn-sm btn-delete" onClick={() => setDeleteConfirm(person)}>✕</button>
         </div>
@@ -640,7 +904,38 @@ const App = () => {
                 </div>
                 {wife.children && wife.children.length > 0 && (
                   <div className="grandchildren-grid">
-                    {wife.children.sort((a, b) => (a.order || 0) - (b.order || 0)).map(child => renderPersonCard(child, false))}
+                    {wife.children.sort((a, b) => (a.order || 0) - (b.order || 0)).map(child => {
+                      const hasGrandSpouse = child.wives || child.husbands;
+                      return (
+                        <div key={child.id} className="grandchild-container">
+                          {renderPersonCard(child, !hasGrandSpouse)}
+                          {hasGrandSpouse && expandedSons[child.id] && (
+                            <div className="great-grandchildren">
+                              {child.wives && child.wives.map(gwife => (
+                                <div key={gwife.id} className="great-grand-wife">
+                                  <strong>{gwife.name}</strong> ({gwife.title})
+                                  {gwife.children && gwife.children.length > 0 && (
+                                    <div className="great-grandchildren-list">
+                                      {gwife.children.map(gc => renderPersonCard(gc, false))}
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                              {child.husbands && child.husbands.map(ghusb => (
+                                <div key={ghusb.id} className="great-grand-husband">
+                                  <strong>{ghusb.name}</strong> ({ghusb.title})
+                                  {ghusb.children && ghusb.children.length > 0 && (
+                                    <div className="great-grandchildren-list">
+                                      {ghusb.children.map(gc => renderPersonCard(gc, false))}
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>
