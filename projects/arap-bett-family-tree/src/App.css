@@ -535,3 +535,62 @@ body {
   gap: 5px;
   margin-top: 5px;
 }
+
+.nested-person {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nested-spouses {
+  margin-left: 15px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nested-spouse-card {
+  padding: 8px;
+  background: white;
+  border-radius: 6px;
+  border-left: 3px solid #f5576c;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nested-spouse-header {
+  margin-bottom: 6px;
+  font-size: 0.9em;
+  color: #2c3e50;
+}
+
+.nested-spouse-actions {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.nested-children {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.nested-direct-children {
+  margin-top: 8px;
+  padding: 8px;
+  background: #f0f4ff;
+  border-radius: 6px;
+  border-left: 3px solid #667eea;
+}
+
+.nested-direct-children > strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #2c3e50;
+  font-size: 0.85em;
+}

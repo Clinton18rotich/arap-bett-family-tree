@@ -371,9 +371,9 @@ const App = () => {
                         history: '',
                         children: [
                           { id: 'sheila_tonui', name: 'Sheila Tonui', order: 1, location: '', history: '' },
-                          { id: 'robert_ngasura', name: "Robert Ng'asura", order: 2, location: '', history: '' },
-                          { id: 'nickson_kebeney', name: 'Nickson Kebeney', order: 3, location: '', history: '' },
-                          { id: 'patrick_byegon', name: 'Patrick Byegon', order: 4, location: '', history: '' },
+                          { id: 'robert_ngasura', name: "Robert Ng'asura", order: 2, location: '', history: '', wives: [{ id: 'clare', name: 'Clare', title: 'Wife', location: '', history: '', children: [] }] },
+                          { id: 'nickson_kebeney', name: 'Nickson Kebeney', order: 3, location: '', history: '', wives: [{ id: 'maurine', name: 'Maurine', title: 'Wife', location: '', history: '', children: [] }] },
+                          { id: 'patrick_byegon', name: 'Patrick Byegon', order: 4, location: '', history: '', wives: [{ id: 'mercy', name: 'Mercy', title: 'Wife', location: '', history: '', children: [] }] },
                           { id: 'kiprono_kibet', name: 'Kiprono & Kibet (Twins)', order: 5, location: '', history: '' },
                           { id: 'brian_p', name: 'Brian', order: 6, location: '', history: '' }
                         ]
@@ -776,6 +776,16 @@ const App = () => {
           }
         }
       }
+      if (obj.husbands) {
+        for (let husband of obj.husbands) {
+          if (findAndAddWife(husband)) return true;
+          if (husband.children) {
+            for (let child of husband.children) {
+              if (findAndAddWife(child)) return true;
+            }
+          }
+        }
+      }
       if (obj.children) {
         for (let child of obj.children) {
           if (findAndAddWife(child)) return true;
@@ -807,6 +817,16 @@ const App = () => {
           if (findAndAddChild(wife)) return true;
           if (wife.children) {
             for (let child of wife.children) {
+              if (findAndAddChild(child)) return true;
+            }
+          }
+        }
+      }
+      if (obj.husbands) {
+        for (let husband of obj.husbands) {
+          if (findAndAddChild(husband)) return true;
+          if (husband.children) {
+            for (let child of husband.children) {
               if (findAndAddChild(child)) return true;
             }
           }
@@ -854,7 +874,7 @@ const App = () => {
 
   const renderPersonCard = (person, showWifeBtn = true) => {
     const isMale = person.type === 'patriarch' || person.gender === 'male' || (person.title && person.title.includes('Son'));
-    const hasSpouse = person.wives || person.husbands;
+    const hasSpouse = person.wives || person.husbands || (person.children && person.children.length > 0);
     
     return (
       <div key={person.id} className={'person-card ' + (isMale ? 'male' : 'female')}>
@@ -873,6 +893,72 @@ const App = () => {
   };
 
   const renderSonDetails = (son) => {
+
+  // Recursive function to render any person with spouses at any depth
+  const renderPersonWithSpouses = (person) => {
+    const hasSpouse = person.wives || person.husbands || (person.children && person.children.length > 0);
+    const isExpanded = expandedSons[person.id];
+
+    return (
+      <div key={person.id} className="nested-person">
+        {renderPersonCard(person, !hasSpouse)}
+        {hasSpouse && isExpanded && (
+          <div className="nested-spouses">
+            {person.wives && person.wives.map(spouse => (
+              <div key={spouse.id} className="nested-spouse-card">
+                <div className="nested-spouse-header">
+                  <strong>{spouse.name}</strong>
+                  <span className="wife-subtitle"> - {spouse.title}</span>
+                </div>
+                <div className="nested-spouse-actions">
+                  <button className="btn-sm" onClick={() => { setFormData({ ...formData, type: 'child', parentId: spouse.id }); setShowAddForm(true); }}>+ Child</button>
+                  <button className="btn-sm btn-edit" onClick={() => openEditForm(spouse)}>✎</button>
+                  <button className="btn-sm btn-delete" onClick={() => setDeleteConfirm(spouse)}>✕</button>
+                </div>
+                {spouse.children && spouse.children.length > 0 && (
+                  <div className="nested-children">
+                    {spouse.children.sort((a, b) => (a.order || 0) - (b.order || 0)).map(child => 
+                      renderPersonWithSpouses(child)
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+            {person.husbands && person.husbands.map(spouse => (
+              <div key={spouse.id} className="nested-spouse-card">
+                <div className="nested-spouse-header">
+                  <strong>{spouse.name}</strong>
+                  <span className="wife-subtitle"> - {spouse.title}</span>
+                </div>
+                <div className="nested-spouse-actions">
+                  <button className="btn-sm" onClick={() => { setFormData({ ...formData, type: 'child', parentId: spouse.id }); setShowAddForm(true); }}>+ Child</button>
+                  <button className="btn-sm btn-edit" onClick={() => openEditForm(spouse)}>✎</button>
+                  <button className="btn-sm btn-delete" onClick={() => setDeleteConfirm(spouse)}>✕</button>
+                </div>
+                {spouse.children && spouse.children.length > 0 && (
+                  <div className="nested-children">
+                    {spouse.children.sort((a, b) => (a.order || 0) - (b.order || 0)).map(child => 
+                      renderPersonWithSpouses(child)
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+            {person.children && person.children.length > 0 && (
+              <div className="nested-direct-children">
+                <strong>Children:</strong>
+                <div className="nested-children">
+                  {person.children.sort((a, b) => (a.order || 0) - (b.order || 0)).map(child =>
+                    renderPersonWithSpouses(child)
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  };
     const isExpanded = expandedSons[son.id];
     
     return (
@@ -904,38 +990,9 @@ const App = () => {
                 </div>
                 {wife.children && wife.children.length > 0 && (
                   <div className="grandchildren-grid">
-                    {wife.children.sort((a, b) => (a.order || 0) - (b.order || 0)).map(child => {
-                      const hasGrandSpouse = child.wives || child.husbands;
-                      return (
-                        <div key={child.id} className="grandchild-container">
-                          {renderPersonCard(child, !hasGrandSpouse)}
-                          {hasGrandSpouse && expandedSons[child.id] && (
-                            <div className="great-grandchildren">
-                              {child.wives && child.wives.map(gwife => (
-                                <div key={gwife.id} className="great-grand-wife">
-                                  <strong>{gwife.name}</strong> ({gwife.title})
-                                  {gwife.children && gwife.children.length > 0 && (
-                                    <div className="great-grandchildren-list">
-                                      {gwife.children.map(gc => renderPersonCard(gc, false))}
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
-                              {child.husbands && child.husbands.map(ghusb => (
-                                <div key={ghusb.id} className="great-grand-husband">
-                                  <strong>{ghusb.name}</strong> ({ghusb.title})
-                                  {ghusb.children && ghusb.children.length > 0 && (
-                                    <div className="great-grandchildren-list">
-                                      {ghusb.children.map(gc => renderPersonCard(gc, false))}
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
+                    {wife.children.sort((a, b) => (a.order || 0) - (b.order || 0)).map(child => 
+                      renderPersonWithSpouses(child)
+                    )}
                   </div>
                 )}
               </div>
