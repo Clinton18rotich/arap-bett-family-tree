@@ -317,8 +317,9 @@ const App = () => {
                   { id: 'christine_byegon', name: 'Christine Byegon', order: 5, location: '', history: '' },
                   { id: 'paul_ngeno', name: "Paul Ng'eno", order: 6, location: '', history: '' },
                   { id: 'margaret_ki', name: 'Margaret', order: 7, location: '', history: '' },
-                  { id: 'joyce_ngetich', name: "Joyce Ng'etich", order: 8, location: '', history: '' },
-                  { id: 'charles_ngeno', name: "Charles Ng'eno", order: 9, location: '', history: '' }
+                  { id: 'moses_ngeno', name: 'Moses', order: 8, location: '', history: '' },
+                  { id: 'joyce_ngetich', name: "Joyce Ng'etich", order: 9, location: '', history: '' },
+                  { id: 'charles_ngeno', name: "Charles Ng'eno", order: 10, location: '', history: '' }
                 ]
               },
               {
@@ -395,8 +396,9 @@ const App = () => {
   };
 
   const saveData = (data) => {
-    setFamilyData(data);
-    localStorage.setItem('familyTreeData', JSON.stringify(data));
+    const newData = JSON.parse(JSON.stringify(data));
+    setFamilyData(newData);
+    localStorage.setItem('familyTreeData', JSON.stringify(newData));
     showSaveNotification('✓ Changes saved!');
   };
 
